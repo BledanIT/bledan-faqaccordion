@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | FAQ accordion</title>
+</head>
+<body>
+  <main>
+    <section class = "title">
+      <span class="star"></span><h1>FAQs</h1>
+    </section>
+    <section class = "q&a" id="question1">
+      <div class = "question" onclick="toggleSection(1)">
+        <h2>What is Frontend Mentor, and how will it help me?</h2><span class="plus"></span>
+      </div>
+      <div class="content">
+        <p>Frontend Mentor offers realistic coding challenges to help developers improve their 
+        frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+        all levels and ideal for portfolio building.</p>
+      </div>
+    </section>
+    <hr>
+    <section class = "q&a" id="question2">
+      <div class = "question" onclick="toggleSection(2)">
+        <h2>Is Frontend Mentor free?</h2><span class="plus"></span>
+      </div>
+      <div class="content">
+        <p>Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+        option providing access to a range of projects suitable for all skill levels.</p>
+      </div>
+    </section>
+    <hr>
+    <section class = "q&a" id="question3">
+      <div class = "question" onclick="toggleSection(3)">
+        <h2>Can I use Frontend Mentor projects in my portfolio?</h2><span class="plus"></span>
+      </div>
+      <div class="content">
+        <p>Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+        way to showcase your skills to potential employers!</p>
+      </div>
+    </section>
+    <hr>
+    <section class = "q&a" id="question4">
+      <div class = "question" onclick="toggleSection(4)">
+        <h2>How can I get help if I'm stuck on a Frontend Mentor challenge?</h2><span class="plus"></span>
+      </div>
+      <div class="content">
+        <p>The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+        channel where you can ask questions and seek support from other community members.</p>
+      </div>
+    </section>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/BledanIT/">Bledan</a>.
+  </div>
+  <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>

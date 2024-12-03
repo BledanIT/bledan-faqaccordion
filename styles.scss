@@ -1,0 +1,187 @@
+@use "sass:map";
+
+.attribution{
+    font-size: 11px;
+    text-align: center;
+    a{
+    color: hsl(228, 45%, 44%);
+    }
+}
+
+$smallscreen: 375px;
+
+$iconurl: './assets/images/';
+
+$colors:(
+"white": hsl(0, 0%, 100%),
+"light pink": hsl(275, 100%, 97%),
+"grayish purple": hsl(292, 16%, 49%),
+"dark purple": hsl(292, 42%, 14%),
+"purple": #AD28EB
+);
+
+$defaultfontsize: 16px;
+
+$fontweights: (
+    "regular": 400,
+    "medium": 600,
+    "bold": 700
+);
+
+@mixin fontWorkSans($fontsize: $defaultfontsize, $weight: "regular", $color: "dark purple") {
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: map.get($fontweights, $weight);
+    font-style: normal;
+    font-size: $fontsize;
+    color: map.get($colors, $color);
+}
+
+@mixin backcolor($color: "light pink"){
+    background-color: map.get($colors, $color);
+}
+
+@mixin centermargin($hmargin: auto, $vmargin: $margin){
+    margin: $vmargin $hmargin;
+}
+
+@mixin iconlink($url: '#'){
+    content: url($url);
+}
+
+%icon{
+    height: auto;
+    width: auto;
+    display: inline;
+    position: relative;
+    top: 0.15rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+body{
+    @include fontWorkSans();
+    background: no-repeat url("./assets/images/background-pattern-mobile.svg");
+    @include backcolor();
+    background-size: 100%;
+    background-attachment: fixed; 
+    background-position: 0 0;
+    background-origin: border-box;
+
+    @media screen and (min-width: $smallscreen) {
+        background: repeat-x url("./assets/images/background-pattern-desktop.svg");
+        @include backcolor();
+        background-size: 100%;
+    }
+}
+
+main{
+    @include backcolor("white");
+    @include centermargin(auto, 5rem);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 75%;
+
+    @media screen and (min-width: $smallscreen) {
+        max-width: 30rem;
+        box-shadow: 0 1rem 3rem 0 hsla(0, 0%, 0%, 0.1);
+        margin-top: 8%;
+    }
+}
+
+.title{
+    margin-bottom: 1rem;
+
+    .star{
+        @extend %icon;
+        $urlend: 'icon-star.svg';
+        @include iconlink($iconurl + $urlend);
+        width: 1.5rem;
+        margin-right: 1rem;
+
+        @media screen and (min-width: $smallscreen) {
+            width: 2rem;
+            top: 0rem;
+            margin-right: 1.5rem;
+        }
+    }
+    
+    h1{
+        @include fontWorkSans(2rem, "bold");
+        display: inline;
+        text-align: center;
+
+        @media screen and (min-width: $smallscreen) {
+            @include fontWorkSans(3rem, "bold");
+        }
+    }
+}
+
+
+
+.question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: linear 0.3s;
+
+    &:hover h2{
+        @include fontWorkSans(0.9rem, "bold", "purple");
+    }
+
+    h2{
+        @include fontWorkSans(0.9rem, "bold");
+        padding-right: 1rem;
+        display: inline;
+    }
+}
+
+.expander{
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: auto;
+    margin-right: -0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    &:active{
+        transform: scale(0.9);
+    }
+}
+
+.plus{
+    @extend %icon;
+    $urlend: 'icon-plus.svg';
+    @include iconlink($iconurl + $urlend);
+}
+
+.minus{
+    @extend %icon;
+    $urlend: 'icon-minus.svg';
+    @include iconlink($iconurl + $urlend);
+}
+
+.content{
+    max-height: 0;
+    transition: ease-in-out 0.3s;
+    overflow: hidden;
+
+    p{
+        @include fontWorkSans(0.8rem, "regular", "grayish purple");
+        line-height: 1.5;
+        visibility: visible;
+    }
+}
+
+hr{
+    border: 0;
+    width: 100%;
+    height: 0.05rem;
+    @include backcolor("light pink");
+    opacity: 1;
+    margin: 1rem 0; 
+}
+
+
